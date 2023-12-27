@@ -6,7 +6,6 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
-import java.util.List;
 
 
 //Decorator Pattern of mapping our Custom User to the UserDetails spring security class.
@@ -30,7 +29,10 @@ public class SecurityUser implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(()->"read");
+        return user.getAuthorities()
+                .stream()
+                .map(SecurityAuthority::new)
+                .toList();
     }
 
     @Override

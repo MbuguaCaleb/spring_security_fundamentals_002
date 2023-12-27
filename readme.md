@@ -29,3 +29,34 @@ is used in mapping one class to the other. recommeded approach.
 2.I can also override my bean and add the user in memory,and also provide my user in userDetails.
 
 ```
+
+**GrantedAuthority Interface**
+
+```agsl
+
+It is one that is used to grant authorties and roles in Spring Boot.
+
+The authoroties that the user has is part of the user details class.
+
+Authorities->are the actions that the user can do, eg Create,Read,Update,Delete
+Role->Badge eg Admin, client etc
+```
+
+
+**Note**
+
+```agsl
+The default authentication manager and default authentication provider by spring is more than enough,
+
+All the authentication provider needs to do is to call the user service so that it is able to decide whether
+we have the UserDetails spring object to put it in the context or not.
+
+we can override the default implementation of user service by spring to have our own users etc.
+```
+
+**Security Context**
+
+```agsl
+Once we ara authenticated, we can easily get the logged in user in the security context.
+
+```
